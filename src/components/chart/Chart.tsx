@@ -27,7 +27,7 @@ export default function BudgetChart({ totalIncome, totalExpense }: BudgetChartPr
             label
             cursor='pointer'
           >
-            {data.map((entry, index) => (
+            {data.map((_entry, index) => (
               <Cell key={`cell-${index}`} fill={COLORS[index]} />
             ))}
           </Pie>
