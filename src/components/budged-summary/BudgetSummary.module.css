@@ -1,0 +1,34 @@
+.summary {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  margin: 10px 0;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.income {
+  color: green;
+  font-weight: bold;
+}
+
+.expense {
+  color: red;
+  font-weight: bold;
+}
+
+.balancePositive {
+  color: green;
+  font-weight: bold;
+}
+
+.balanceNegative {
+  color: red;
+  font-weight: bold;
+}

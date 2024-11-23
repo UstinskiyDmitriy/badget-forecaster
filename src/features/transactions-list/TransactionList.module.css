@@ -1,0 +1,76 @@
+.tableContainer {
+  overflow-x: auto;
+  width: 100%;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.table th, .table td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+.table th {
+  background-color: #f4f4f4;
+}
+
+.income {
+  background-color: #e8f5e9;
+}
+
+.expense {
+  background-color: #ffebee;
+}
+
+.emptyMessage {
+  text-align: center;
+  color: #777;
+  margin-top: 20px;
+  font-size: 1.2rem;
+}
+
+.card {
+  margin: 10px 0;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.mobileOnly {
+  display: none;
+}
+
+.desktopOnly {
+  display: block;
+}
+
+/* Адаптивные стили */
+@media (max-width: 768px) {
+  .mobileOnly {
+    display: block;
+  }
+
+  .desktopOnly {
+    display: none;
+  }
+}
+
+.delete_button {
+  border: none;
+  padding: 5px 10px;
+  background-color: rgba(243, 96, 96, 0.866);
+  border-radius: 10px;
+  color: #fff;
+  font-size: 16px;
+}
+
+.delete_button:hover {
+  background-color: red;
+}
