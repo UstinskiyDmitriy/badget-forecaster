@@ -28,7 +28,7 @@ export default function BudgetSummary({
       <div className={styles.item}>
         {isOpen && (
           <div className={styles.dropdown}>
-            <BalanceDropdown />
+            <BalanceDropdown setOpen={setOpen}/>
           </div>
         )}
      

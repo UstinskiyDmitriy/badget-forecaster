@@ -3,12 +3,17 @@ import styles from './BalanceDropDown.module.css'
 import { useDispatch } from 'react-redux';
 import { addInitialBalance } from '../../store/slices/transactionsSlice';
 
-export default function BalanceDropdown() {
+interface Props {
+  setOpen: (boolean:boolean) => void
+}
+
+export default function BalanceDropdown({setOpen}:Props) {
   const dispatch = useDispatch();
   const [amount, setAmount] = useState(0)
 
   const handleSubmit = () => {
     dispatch(addInitialBalance(amount))
+    setOpen(false)
   }
   const handleChange = (event:React.BaseSyntheticEvent) => {
     setAmount(parseFloat(event.target.value))

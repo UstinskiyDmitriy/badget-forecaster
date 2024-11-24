@@ -8,11 +8,12 @@ type TransactionsState = {
   initialBalance: number
 };
 
-const LOCAL_STORAGE_KEY = 'transactions';
 
+const LOCAL_STORAGE_KEY = 'transactions';
+const INITIAL_BALANCE = 'initialbalance'
 const initialState: TransactionsState = {
   list: loadFromLocalStorage<Transaction[]>(LOCAL_STORAGE_KEY) || [],
-  initialBalance: 0,
+  initialBalance: loadFromLocalStorage<number>(INITIAL_BALANCE) ?? 0,
 };
 
 const transactionsSlice = createSlice({
@@ -21,7 +22,7 @@ const transactionsSlice = createSlice({
   reducers: {
     addInitialBalance: (state, action:PayloadAction<number>) => {
       state.initialBalance = action.payload
-      
+     saveToLocalStorage(INITIAL_BALANCE, state.initialBalance)
     },
     addTransaction: (state, action: PayloadAction<Transaction>) => {
       state.list.push(action.payload);

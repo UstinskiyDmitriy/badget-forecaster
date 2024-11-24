@@ -19,9 +19,13 @@
   margin-bottom: 5px;
 }
 
+.react_select_container {
+  width: 95%;
+}
+
 .row input,
 .react-select__control {
-  width: 100%;
+  width: 90%;
   padding: 10px;
   font-size: 1rem;
   border: 1px solid #ccc;

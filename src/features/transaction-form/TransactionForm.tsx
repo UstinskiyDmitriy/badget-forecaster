@@ -77,7 +77,7 @@ export default function TransactionForm() {
             value={options.find((option) => option.value === form.type)}
             onChange={handleSelectChange}
             options={options}
-            className="react-select-container"
+            className={styles.react_select_container}
             classNamePrefix="react-select"
           />
         </label>
