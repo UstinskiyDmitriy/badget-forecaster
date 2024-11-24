@@ -1,0 +1,17 @@
+.main {
+  background-color: #f4f4f4;;
+  border-radius: 20px;
+  padding: 15px 10px;
+}
+
+.main label {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 0;
+}
+
+.main input {
+  margin: 0;
+}
+

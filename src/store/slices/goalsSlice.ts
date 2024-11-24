@@ -10,6 +10,7 @@ interface Goal {
 
 interface GoalsState {
   list: Goal[];
+  
 }
 
 const loadGoalsFromLocalStorage = (): Goal[] => {
@@ -19,12 +20,14 @@ const loadGoalsFromLocalStorage = (): Goal[] => {
 
 const initialState: GoalsState = {
   list: loadGoalsFromLocalStorage(),
+  
 };
 
 const goalsSlice = createSlice({
   name: 'goals',
   initialState,
   reducers: {
+
     addGoal(state, action: PayloadAction<Goal>) {
       state.list.push(action.payload);
       localStorage.setItem('goals', JSON.stringify(state.list));
@@ -46,5 +49,5 @@ const goalsSlice = createSlice({
   },
 });
 
-export const { addGoal, removeGoal, updateGoal } = goalsSlice.actions;
+export const { addGoal, removeGoal, updateGoal} = goalsSlice.actions;
 export default goalsSlice.reducer;

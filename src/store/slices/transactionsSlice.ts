@@ -5,18 +5,24 @@ import { Transaction } from '../../types/types';
 
 type TransactionsState = {
   list: Transaction[];
+  initialBalance: number
 };
 
 const LOCAL_STORAGE_KEY = 'transactions';
 
 const initialState: TransactionsState = {
   list: loadFromLocalStorage<Transaction[]>(LOCAL_STORAGE_KEY) || [],
+  initialBalance: 0,
 };
 
 const transactionsSlice = createSlice({
   name: 'transactions',
   initialState,
   reducers: {
+    addInitialBalance: (state, action:PayloadAction<number>) => {
+      state.initialBalance = action.payload
+      
+    },
     addTransaction: (state, action: PayloadAction<Transaction>) => {
       state.list.push(action.payload);
       saveToLocalStorage(LOCAL_STORAGE_KEY, state.list);
@@ -28,6 +34,6 @@ const transactionsSlice = createSlice({
   },
 });
 
-export const { addTransaction, deleteTransaction } = transactionsSlice.actions;
+export const { addTransaction, deleteTransaction,addInitialBalance  } = transactionsSlice.actions;
 
 export default transactionsSlice.reducer;

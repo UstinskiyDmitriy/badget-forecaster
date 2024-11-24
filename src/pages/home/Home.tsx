@@ -9,7 +9,6 @@ export default function Home() {
 
   const transactions = useSelector((state: RootState) => state.transactions.list);
   
-
   const totalIncome = transactions
     .filter((t) => t.type === 'income')
     .reduce((sum, t) => sum + t.amount, 0);
@@ -22,6 +21,7 @@ export default function Home() {
   return (
     <div>
       <h2>Обзор бюджета</h2>
+      
       <BudgetSummary totalIncome={totalIncome} totalExpense={totalExpense} />
 
       <h2>График бюджета</h2>

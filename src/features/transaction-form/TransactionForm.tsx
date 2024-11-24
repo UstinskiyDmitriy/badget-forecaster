@@ -119,6 +119,7 @@ export default function TransactionForm() {
             value={form.date}
             onChange={handleChange}
             required
+            className={styles.date_input}
           />
         </label>
       </div>
