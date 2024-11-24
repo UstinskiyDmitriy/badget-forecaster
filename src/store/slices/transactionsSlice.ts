@@ -24,6 +24,11 @@ const transactionsSlice = createSlice({
       state.initialBalance = action.payload
      saveToLocalStorage(INITIAL_BALANCE, state.initialBalance)
     },
+
+    minusInitialBalance: (state, action:PayloadAction<number>) => {
+      state.initialBalance -= action.payload
+      saveToLocalStorage(INITIAL_BALANCE, state.initialBalance)
+    },
     addTransaction: (state, action: PayloadAction<Transaction>) => {
       state.list.push(action.payload);
       saveToLocalStorage(LOCAL_STORAGE_KEY, state.list);
@@ -35,6 +40,6 @@ const transactionsSlice = createSlice({
   },
 });
 
-export const { addTransaction, deleteTransaction,addInitialBalance  } = transactionsSlice.actions;
+export const { addTransaction, deleteTransaction,addInitialBalance, minusInitialBalance  } = transactionsSlice.actions;
 
 export default transactionsSlice.reducer;

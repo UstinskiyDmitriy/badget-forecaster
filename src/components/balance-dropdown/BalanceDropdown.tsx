@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styles from './BalanceDropDown.module.css'
 import { useDispatch } from 'react-redux';
-import { addInitialBalance } from '../../store/slices/transactionsSlice';
+import { addInitialBalance, minusInitialBalance } from '../../store/slices/transactionsSlice';
 
 interface Props {
   setOpen: (boolean:boolean) => void
@@ -11,9 +11,13 @@ export default function BalanceDropdown({setOpen}:Props) {
   const dispatch = useDispatch();
   const [amount, setAmount] = useState(0)
 
-  const handleSubmit = () => {
+  const handleAdd = () => {
     dispatch(addInitialBalance(amount))
     setOpen(false)
+  }
+
+  const handleMinus = () => {
+    dispatch(minusInitialBalance(amount))
   }
   const handleChange = (event:React.BaseSyntheticEvent) => {
     setAmount(parseFloat(event.target.value))
@@ -29,7 +33,8 @@ export default function BalanceDropdown({setOpen}:Props) {
             onChange={handleChange}
             placeholder="Введите сумму"
           />
-          <button onClick={handleSubmit}>Добавить</button>
+          <button onClick={handleAdd}>Добавить</button>
+          <button style={{backgroundColor:'red'}} onClick={handleMinus}>Отнять</button>
         </label>
       </div>
   )

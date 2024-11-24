@@ -23,6 +23,7 @@ export default function BudgetSummary({
   const open = () => {
     setOpen(!isOpen);
   };
+
   return (
     <div className={styles.summary}>
       <div className={styles.item}>
