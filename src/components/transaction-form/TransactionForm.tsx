@@ -4,6 +4,7 @@ import { addTransaction } from '../../store/slices/transactionsSlice';
 import { v4 as uuidv4 } from 'uuid';
 import Select from 'react-select';
 import styles from './TransactionForm.module.css';
+import { DATE } from '../../utils/date';
 
 export default function TransactionForm() {
   const dispatch = useDispatch();
@@ -12,7 +13,7 @@ export default function TransactionForm() {
     type: 'income',
     category: '',
     description: '',
-    date: '',
+    date: DATE,
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -27,7 +28,7 @@ export default function TransactionForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.amount || !form.date || !form.category) return;
+    if (!form.amount || !form.category) return;
 
     dispatch(
       addTransaction({
@@ -36,9 +37,11 @@ export default function TransactionForm() {
         type: form.type as 'income' | 'expense',
         category: form.category,
         description: form.description,
-        date: form.date,
+        date: DATE,
       })
+     
     );
+    console.log(DATE)
     setForm({
       amount: '',
       type: 'income',
@@ -106,20 +109,6 @@ export default function TransactionForm() {
             value={form.description}
             onChange={handleChange}
             placeholder="Краткое описание (необязательно)"
-          />
-        </label>
-      </div>
-
-      <div className={styles.row}>
-        <label>
-          Дата:
-          <input
-            type="date"
-            name="date"
-            value={form.date}
-            onChange={handleChange}
-            required
-            className={styles.date_input}
           />
         </label>
       </div>

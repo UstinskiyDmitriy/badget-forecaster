@@ -1,4 +1,4 @@
-import TransactionList from '../../features/transactions-list/TransactionList'
+import TransactionList from '../../components/transactions-list/TransactionList'
 
 export default function TransactionHistoriPage() {
   return (

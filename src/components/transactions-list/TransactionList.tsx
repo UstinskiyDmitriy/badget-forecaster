@@ -1,8 +1,8 @@
 import { useSelector, useDispatch } from 'react-redux';
-
 import { deleteTransaction } from '../../store/slices/transactionsSlice';
 import styles from './TransactionList.module.css';
 import { RootState } from '../../store/store';
+
 
 export default function TransactionList() {
   const transactions = useSelector((state: RootState) => state.transactions.list);

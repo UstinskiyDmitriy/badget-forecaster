@@ -5,7 +5,7 @@ interface BudgetState {
 }
 
 const initialState: BudgetState = {
-  balance: 1000, 
+  balance: 0
 };
 
 const budgetSlice = createSlice({

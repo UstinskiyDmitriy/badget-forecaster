@@ -1,13 +1,18 @@
 import { PieChart, Pie, Cell, Legend, Tooltip, ResponsiveContainer } from 'recharts';
 import styles from './Chart.module.css'
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store/store';
 type BudgetChartProps = {
   totalIncome: number;
   totalExpense: number;
 };
 
 export default function BudgetChart({ totalIncome, totalExpense }: BudgetChartProps) {
+
+  const initialBalance = useSelector((state:RootState) => state.transactions.initialBalance)
+  
   const data = [
-    { name: 'Доходы', value: totalIncome },
+    { name: 'Доходы', value: initialBalance + totalIncome },
     { name: 'Расходы', value: totalExpense },
   ];
 
